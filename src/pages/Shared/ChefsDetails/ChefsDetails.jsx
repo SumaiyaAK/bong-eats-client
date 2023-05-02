@@ -16,13 +16,13 @@ const ChefsDetails = () => {
     return (
         <div className="row row-cols-1 row-cols-sm-2 row-cols-md-4 gap-4 justify-content-center align-items-center">
             {
-                recipes.map(recipe => <Card style={{ width: '18rem' }}
+                recipes.map(recipe => <Card style={{ width: '20rem' }}
                     key={recipe.id}
                 >
                     {/* <Card style={{ width: '18rem' }}> */}
 
 
-                    <Card.Img variant="top" src={recipe.chef_img}></Card.Img>
+                    <Card.Img style={{ width: '17rem', height:'23rem' }}  variant="top" src={recipe.chef_img}></Card.Img>
 
                     <Card.Body>
                         <Card.Title>{recipe.chefs_name}</Card.Title>
