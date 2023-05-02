@@ -28,7 +28,7 @@ const ChefsDetails = () => {
                         <Card.Title>{recipe.chefs_name}</Card.Title>
                         <Card.Text>Years of Experience: {recipe.experience}</Card.Text>
                         <Card.Text>Number of Recipe: {recipe.number_of_recipe}</Card.Text>
-                        <Link to={`/recipe/${recipe.id}`}>
+                        <Link to={`/recipeDetails/${recipe.id}`}>
                             <Button variant="primary">View Recipe</Button>
                         </Link>
 

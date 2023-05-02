@@ -33,7 +33,7 @@ const Main = () => {
 
             </Container>
             <ChefsDetails>
-            <Outlet></Outlet>
+            {/* <Outlet></Outlet> */}
             </ChefsDetails>
 
             <Footer></Footer>
