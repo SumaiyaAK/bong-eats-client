@@ -13,7 +13,9 @@ const Main = () => {
                     <Col sm={4}>sm=4</Col>
                 </Row> */}
                 <Row>
-                    <Col lg={6}>sm=true</Col>
+                    <Col lg={6}>
+                        
+                    </Col>
                     <Col lg={6}>sm=true</Col>
                 </Row>
             </Container>
