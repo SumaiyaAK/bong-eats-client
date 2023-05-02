@@ -22,7 +22,7 @@ const ChefsDetails = () => {
                     {/* <Card style={{ width: '18rem' }}> */}
 
 
-                    <Card.Img style={{ width: '17rem', height:'23rem' }}  variant="top" src={recipe.chef_img}></Card.Img>
+                    <Card.Img style={{ width: '17rem', height:'23rem'  }}  variant="top" src={recipe.chef_img}></Card.Img>
 
                     <Card.Body>
                         <Card.Title>{recipe.chefs_name}</Card.Title>
