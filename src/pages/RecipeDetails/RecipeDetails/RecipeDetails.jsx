@@ -1,15 +1,16 @@
 
-import { Button, Card } from 'react-bootstrap';
+import { Button, Card, Container } from 'react-bootstrap';
 import { useLoaderData, useParams } from 'react-router-dom';
 
 
 const RecipeDetails = () => {
   // const {id} = useParams()
-  const recipeDetails = useLoaderData();
-  console.log(recipeDetails)
+  // const recipeDetails = useLoaderData();
+  // console.log(recipeDetails)
 
 
   return (
+    <Container>
     <Card style={{ width: '18rem' }}>
       <Card.Img variant="top" src="holder.js/100px180" />
       <Card.Body>
@@ -21,6 +22,7 @@ const RecipeDetails = () => {
         <Button variant="primary">Go somewhere</Button>
       </Card.Body>
     </Card>
+    </Container>
 
   );
 };

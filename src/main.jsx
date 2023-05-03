@@ -11,6 +11,8 @@ import Home from './pages/Home/Home/Home.jsx';
 import Blog from './pages/Blog/Blog.jsx';
 import Login from './pages/Login/Login.jsx';
 import Register from './pages/Register/Register.jsx';
+import RecipeDetails from './pages/RecipeDetails/RecipeDetails/RecipeDetails.jsx';
+import PrivateRoute from './routes/PrivateRoute.jsx';
 
 
 const router = createBrowserRouter([
@@ -20,7 +22,11 @@ const router = createBrowserRouter([
     children:[
       {
         path: '/',
-        element:<Home></Home>
+        element:<Home></Home>,
+      },
+      {
+        path:'/recipeDetails/:id',
+        element: <PrivateRoute><RecipeDetails></RecipeDetails></PrivateRoute>
       },
       {
         path: '/blog',
