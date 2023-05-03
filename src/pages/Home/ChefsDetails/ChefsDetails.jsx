@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Card, Col, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+// import RecipeCard from '../RecipeCard/RecipeCard';
 
 
 const ChefsDetails = () => {
@@ -18,6 +19,7 @@ const ChefsDetails = () => {
             {
                 recipes.map(recipe => <Card style={{ width: '20rem' }}
                     key={recipe.id}
+                    // recipe = {recipe}
                 >
                     {/* <Card style={{ width: '18rem' }}> */}
 
