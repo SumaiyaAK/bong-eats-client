@@ -13,6 +13,7 @@ import Login from './pages/Login/Login.jsx';
 import Register from './pages/Register/Register.jsx';
 import RecipeDetails from './pages/RecipeDetails/RecipeDetails/RecipeDetails.jsx';
 import PrivateRoute from './routes/PrivateRoute.jsx';
+import Error from './pages/Error/Error.jsx';
 
 
 const router = createBrowserRouter([
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
       {
         path: '/register',
         element: <Register></Register>
+      },
+      {
+        path:'/*',
+        element: <Error></Error>
       }
     ]
   }
