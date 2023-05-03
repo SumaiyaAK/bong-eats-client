@@ -2,15 +2,16 @@ import React, { useContext } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProvider';
-import { GoogleAuthProvider, getAuth } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider, getAuth } from 'firebase/auth';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
 import { signInWithPopup } from 'firebase/auth';
 import app from '../../firebase/firebase.config';
 
 const auth = getAuth(app)
 const Login = () => {
-    const { signIn, signInGoogle } = useContext(AuthContext);
+    const { signIn } = useContext(AuthContext);
     const provider = new GoogleAuthProvider();
+    const gitHubProvider = new GithubAuthProvider();
     const navigate = useNavigate()
     const location = useLocation();
     console.log('login page location', location)
@@ -48,6 +49,18 @@ const Login = () => {
         })
     }
 
+    const handleGitHubSignIn = () => {
+        signInWithPopup(auth, gitHubProvider )
+        .then(result => {
+            const githubUser = result.user;
+            console.log(githubUser)
+            navigate(from, { replace: true })
+        })
+        .catch(error => {
+            console.log('error', error.message)
+        })
+    }
+
 
     return (
         <div className="row row-cols-1 row-cols-sm-2 row-cols-md-4 gap-4 justify-content-center align-items-center mt-8">
@@ -75,7 +88,7 @@ const Login = () => {
                         <Button onClick={handleGoogleSignIn}className='w-75' variant="primary"> <FaGoogle></FaGoogle>Login with Google</Button>
                     </div>
                     <div className='mt-4'>
-                        <Button className='w-75' variant="secondary"> <FaGithub></FaGithub> Login with GitHub</Button>
+                        <Button onClick={handleGitHubSignIn}className='w-75' variant="secondary"> <FaGithub></FaGithub> Login with GitHub</Button>
                     </div>
                     <br></br>
                     <Form.Text className="text-success">
