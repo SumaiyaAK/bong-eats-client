@@ -10,7 +10,7 @@ const NavigationBar = () => {
     const handleLogOut = () => {
         logOut()
         .then()
-        .catch()
+        .catch(error => console.log(error))
     }
 
     return (
@@ -25,7 +25,7 @@ const NavigationBar = () => {
                         <Link className='text-decoration-none fw-semibold' to='/'>Home</Link>
                         
                         <Link className='text-decoration-none fw-semibold' to='/blog'>Blog</Link>
-                        <Link className='text-decoration-none fw-semibold' to='/login'>Login</Link> 
+                         
                         
                     </Nav>
                     <Nav>
