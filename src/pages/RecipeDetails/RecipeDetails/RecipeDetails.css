@@ -1,0 +1,27 @@
+
+.recipeContainer{
+    min-height: 800px;
+}
+
+
+.recipeDetailsCard{
+    width: 1500px;
+    display: flex;
+    margin-bottom: 50px;
+    align-items: center;
+    
+}
+
+.recipeDetailsCard img{
+    width: 600px;
+}
+
+.favoritButton{
+    width: 150px;
+    height: 50px;
+    border: none;
+    background-color: orange;
+    font-weight: bold;
+    border-radius: 5px;
+
+}

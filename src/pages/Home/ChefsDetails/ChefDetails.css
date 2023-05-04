@@ -1,0 +1,19 @@
+
+.chefDetailsHeading{
+    text-align: center;
+    
+    
+    
+}
+
+.ChefCard img{
+    align-items: center;
+    box-shadow: 150px;
+}
+
+.chefBTN{
+    background-color: orange;
+    font-weight: 600;
+    color:black;
+    border: none;
+}

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProvider';
@@ -9,6 +9,7 @@ import app from '../../firebase/firebase.config';
 
 const auth = getAuth(app)
 const Login = () => {
+    const [error, setError] = useState('')
     const { signIn } = useContext(AuthContext);
     const provider = new GoogleAuthProvider();
     const gitHubProvider = new GithubAuthProvider();
@@ -23,6 +24,10 @@ const Login = () => {
         const email = form.email.value;
         const password = form.password.value;
         console.log(email, password);
+
+        if(email != password){
+            setError('Email and password does not match')
+        }
 
 
         signIn(email, password)
@@ -39,26 +44,26 @@ const Login = () => {
 
     const handleGoogleSignIn = () => {
         signInWithPopup(auth, provider)
-        .then(result => {
-            const googleUser = result.user;
-            console.log(googleUser)
-            navigate(from, { replace: true })
-        })
-        .catch(error => {
-            console.log(error)
-        })
+            .then(result => {
+                const googleUser = result.user;
+                console.log(googleUser)
+                navigate(from, { replace: true })
+            })
+            .catch(error => {
+                console.log(error)
+            })
     }
 
     const handleGitHubSignIn = () => {
-        signInWithPopup(auth, gitHubProvider )
-        .then(result => {
-            const githubUser = result.user;
-            console.log(githubUser)
-            navigate(from, { replace: true })
-        })
-        .catch(error => {
-            console.log('error', error.message)
-        })
+        signInWithPopup(auth, gitHubProvider)
+            .then(result => {
+                const githubUser = result.user;
+                console.log(githubUser)
+                navigate(from, { replace: true })
+            })
+            .catch(error => {
+                console.log('error', error.message)
+            })
     }
 
 
@@ -84,18 +89,22 @@ const Login = () => {
                         Login
                     </Button>
 
+                    <p className='text-danger'>{error}</p>
+
+                    
+
                     <div className='align-items-center mt-4' >
-                        <Button onClick={handleGoogleSignIn}className='w-75' variant="primary"> <FaGoogle></FaGoogle>Login with Google</Button>
+                        <Button onClick={handleGoogleSignIn} className='w-75' variant="primary"> <FaGoogle></FaGoogle>Login with Google</Button>
                     </div>
                     <div className='mt-4'>
-                        <Button onClick={handleGitHubSignIn}className='w-75' variant="secondary"> <FaGithub></FaGithub> Login with GitHub</Button>
+                        <Button onClick={handleGitHubSignIn} className='w-75' variant="secondary"> <FaGithub></FaGithub> Login with GitHub</Button>
                     </div>
                     <br></br>
                     <Form.Text className="text-success">
                         Don't Have an Account? <Link to="/register">Register</Link>
                     </Form.Text>
                     <Form.Text className="text-success">
-
+                        
                     </Form.Text>
                     <Form.Text className="text-danger">
 

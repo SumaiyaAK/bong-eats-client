@@ -3,6 +3,7 @@ import { Button, Container, Nav, Navbar } from 'react-bootstrap';
 import { FaUserCircle } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../Providers/AuthProvider';
+import './NavigationBar.css'
 
 const NavigationBar = () => {
     const { user, logOut } = useContext(AuthContext)
@@ -14,31 +15,33 @@ const NavigationBar = () => {
     }
 
     return (
-        <Container>
-            <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
-            <Container>
-                <Navbar.Brand href="#home" className="fw-bold">Bong Eats</Navbar.Brand>
-                <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-                <Navbar.Collapse id="responsive-navbar-nav">
-                    <Nav className="mx-auto gap-4 ">
+        <Navbar className='NavBar' collapseOnSelect expand="lg" bg="orange" variant="orange">
+            {/* <Navbar className='NavBar' collapseOnSelect expand="lg" bg="dark" variant="dark" > */}
+            <Container className='NabarContainer'>
+                <Navbar.Brand href="#home" className="fw-bold fs-2">Bong Eats</Navbar.Brand>
+                <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
+                <Navbar.Collapse id="responsive-navbar-nav " >
+                    <Nav className="mx-auto gap-4 my-auto ">
                         
-                        <Link className='text-decoration-none fw-semibold' to='/'>Home</Link>
+                        <Link className='text-decoration-none fw-bold text-dark fs-5' to='/'>Home</Link>
                         
-                        <Link className='text-decoration-none fw-semibold' to='/blog'>Blog</Link>
+                        <Link className='text-decoration-none fw-bold text-dark fs-5' to='/blog'>Blog</Link>
                          
                         
                     </Nav>
                     <Nav>
                         {
                              user && 
-                            <FaUserCircle style={{fontSize: '2rem'}}></FaUserCircle>
+                            <img src={user.photo} style={{fontSize: '2rem', border:'2px solid black', width: '50px', margin:'0px 8px'  }}></img>
                         
                         }
                         
+
+
                         { user ?
-                            <Button onClick={handleLogOut} variant="secondary">Logout</Button> :
+                            <Button className='bg-dark' onClick={handleLogOut} variant="secondary">Logout</Button> :
                             <Link to="login">
-                              <Button variant="secondary">Login</Button>
+                              <Button className='bg-dark fw-semibold' variant="secondary">Login</Button>
                             </Link>
                             
                         }
@@ -47,7 +50,7 @@ const NavigationBar = () => {
                 </Navbar.Collapse>
             </Container>
         </Navbar>
-        </Container>
+        
     );
 };
 

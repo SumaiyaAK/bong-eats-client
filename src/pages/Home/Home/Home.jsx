@@ -3,6 +3,8 @@ import { Col, Container, Row } from 'react-bootstrap';
 import ChefsDetails from '../ChefsDetails/ChefsDetails';
 import RightBG from '../../Shared/RightBG/RightBG';
 import LeftBG from '../../Shared/LeftBG/LeftBG';
+import FeaturedRecipe from '../FeaturedRecipe/FeaturedRecipe';
+import TipsAndTricks from '../TipsAndTricks/TipsAndTricks';
 
 const Home = () => {
     return (
@@ -21,6 +23,12 @@ const Home = () => {
                 <Row>
                     <ChefsDetails></ChefsDetails>
                    
+                </Row>
+                <Row>
+                    <FeaturedRecipe></FeaturedRecipe>
+                </Row>
+                <Row>
+                    <TipsAndTricks></TipsAndTricks>
                 </Row>
 
             </Container>
