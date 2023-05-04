@@ -11,7 +11,7 @@ import './Login.css'
 const auth = getAuth(app)
 const Login = () => {
     const [error, setError] = useState('')
-    const [success, setSuccess] = useState('')
+    // const [success, setSuccess] = useState('')
     const { signIn } = useContext(AuthContext);
     const provider = new GoogleAuthProvider();
     const gitHubProvider = new GithubAuthProvider();
@@ -91,7 +91,7 @@ const Login = () => {
                     </Button>
 
                     <p className='text-danger'>{error}</p>
-                    <p className='text-danger'>{success}</p>
+                    {/* <p className='text-danger'>{success}</p> */}
 
                     
 
