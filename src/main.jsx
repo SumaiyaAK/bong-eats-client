@@ -28,7 +28,7 @@ const router = createBrowserRouter([
       {
         path:'/recipeDetails/:id',
         element: <PrivateRoute><RecipeDetails></RecipeDetails></PrivateRoute>,
-        loader: ({ params }) => fetch(`http://localhost:5000/recipes/${params.id}`)
+        loader: ({ params }) => fetch(`https://bong-eats-server-sumaiyaak.vercel.app/recipes/${params.id}`)
       },
       {
         path: '/blog',
