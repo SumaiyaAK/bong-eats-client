@@ -1,0 +1,21 @@
+/* .login-page{
+    
+    margin-bottom: 80px;
+} */
+
+.login-Page{
+    min-height: 600px;
+}
+
+.signinBTN{
+    width: 150px;
+    height: 40px;
+    background-color: orange;
+    align-items: center;
+    justify-content: center;
+    margin: 0px 50px;
+    border: none;
+    color:black;
+    font-weight: 600;
+    box-shadow: 50px;
+}

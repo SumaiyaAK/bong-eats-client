@@ -6,6 +6,7 @@ import { GithubAuthProvider, GoogleAuthProvider, getAuth } from 'firebase/auth';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
 import { signInWithPopup } from 'firebase/auth';
 import app from '../../firebase/firebase.config';
+import './Login.css'
 
 const auth = getAuth(app)
 const Login = () => {
@@ -68,8 +69,8 @@ const Login = () => {
 
 
     return (
-        <div className="row row-cols-1 row-cols-sm-2 row-cols-md-4 gap-4 justify-content-center align-items-center mt-8">
-            <Container className='w-25 mx-auto '>
+        <div className="login-page row row-cols-1 row-cols-sm-2 row-cols-md-4 gap-4 justify-content-center align-items-center mt-8">
+            <Container className='login-Page w-25 mx-auto '>
                 <h3>Please Login</h3>
                 <Form onSubmit={handleLogin}>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -82,10 +83,8 @@ const Login = () => {
                         <Form.Label>Password</Form.Label>
                         <Form.Control type="password" name="password" placeholder="Password" required />
                     </Form.Group>
-                    {/* <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                    <Form.Check type="checkbox" label="Check me out" />
-                </Form.Group> */}
-                    <Button className='w-75' variant="primary" type="submit">
+                    
+                    <Button className='signinBTN w-75' variant="primary" type="submit">
                         Login
                     </Button>
 
@@ -94,10 +93,10 @@ const Login = () => {
                     
 
                     <div className='align-items-center mt-4' >
-                        <Button onClick={handleGoogleSignIn} className='w-75' variant="primary"> <FaGoogle></FaGoogle>Login with Google</Button>
+                        <Button onClick={handleGoogleSignIn} className='signinBTN w-75' variant="primary"> <FaGoogle></FaGoogle>Login with Google</Button>
                     </div>
                     <div className='mt-4'>
-                        <Button onClick={handleGitHubSignIn} className='w-75' variant="secondary"> <FaGithub></FaGithub> Login with GitHub</Button>
+                        <Button  onClick={handleGitHubSignIn} className='signinBTN w-75' variant="secondary"> <FaGithub></FaGithub> Login with GitHub</Button>
                     </div>
                     <br></br>
                     <Form.Text className="text-success">

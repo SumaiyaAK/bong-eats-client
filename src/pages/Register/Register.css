@@ -1,0 +1,18 @@
+.registerPage{
+    min-height: 600px;
+    margin-top: 50px;
+}
+
+.registerBTN{
+    width: 350px;
+    height: 40px;
+    background-color: orange;
+    align-items: center;
+    justify-content: center;
+    margin: 0px 50px;
+    border: none;
+    color:black;
+    font-weight: 600;
+    box-shadow: 50px;
+    margin-bottom: 20px;
+}

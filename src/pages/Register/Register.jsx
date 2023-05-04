@@ -2,12 +2,20 @@ import React, { useContext, useState } from 'react';
 import { Button, Card, Container, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProvider';
+import './Register.css'
 
 
 const Register = () => {
     const { createUser } = useContext(AuthContext)
     const [error, setError] = useState('')
     const [success, setSuccess] = useState('')
+    const [errorMessage, setErrorMessage] = useState('')
+
+    // error message
+    const handleErrorClick = () => {
+        setErrorMessage('Please fill the field')
+
+    }
 
     const handleRegister = event => {
         event.preventDefault();
@@ -19,18 +27,11 @@ const Register = () => {
         const password = form.password.value;
         console.log(name, email, photo, password)
 
-
+        // error message
         if (password.length < 6) {
             setError('Please add at least 6 characters in your password')
             return;
         }
-        else if (password === ' ') {
-            setError('Please fill the field')
-            return;
-        }
-        
-        
-
 
         createUser(email, password)
             .then(result => {
@@ -41,10 +42,12 @@ const Register = () => {
                 console.log(error)
             })
     }
-    return (
-        <div className="row row-cols-1 row-cols-sm-2 row-cols-md-4 gap-4 justify-content-center align-items-center ">
 
-            <Container className='w-25 mx-auto'>
+
+    return (
+        <div className="register-page row row-cols-1 row-cols-sm-2 row-cols-md-4 gap-4 justify-content-center align-items-center ">
+
+            <Container className='registerPage w-25 mx-auto'>
                 <h3>Please Register</h3>
                 <Form onSubmit={handleRegister}>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -71,10 +74,11 @@ const Register = () => {
                     <Form.Group className="mb-3" controlId="formBasicCheckbox">
                         <Form.Check type="checkbox" name="accept" label="Accept Terms and Conditiobs" />
                     </Form.Group>
-                    <Button variant="primary" type="submit">
+                    <Button onClick={handleErrorClick} className='registerBTN' variant="primary" type="submit">
                         Register
                     </Button>
-                    
+                    {errorMessage && <div className="error"> {errorMessage} </div>}
+
                     <br></br>
                     <Form.Text className="text-success">
                         Already Have an Account? <Link to="/login">Login</Link>
